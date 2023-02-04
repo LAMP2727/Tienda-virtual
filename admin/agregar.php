@@ -13,11 +13,12 @@ if (isset($_POST)) {
         $descripcion = $_POST['descripcion'];
         $p_normal = $_POST['p_normal'];
         $p_rebajado = $_POST['p_rebajado'];
+        $n_precio = $_POST['n_precio'];
        
         $query = mysqli_query($conexion, "INSERT INTO bi_productos (cantidad,id)
         VALUE ($aumentar,$iduser)");
         if ($query) {
-            $query_upd = mysqli_query($conexion,"CALL cantidad_productos('$aumentar','$iduser')");
+            $query_upd = mysqli_query($conexion,"CALL cantidad_productos('$aumentar','$iduser','$n_precio')");
             $result= mysqli_num_rows($query_upd);
           
                if($result > 0){
@@ -37,10 +38,14 @@ if(empty($_GET['id'])){
     }
     $iduser = $_GET['id'];
     $sql=mysqli_query($conexion,"SELECT `productos`.`id`, `productos`.`nombre`, `productos`.`descripcion`,
-    `productos`.`precio_normal`, `productos`.`precio_rebajado`, `productos`.`cantidad`, `productos`.`imagen`,
-     `productos`.`id_categoria`
+    `productos`.`precio_normal`, `productos`.`precio_rebajado`, `productos`.`cantidad`, 
+    `productos`.`imagen`,`productos`.`id_categoria`,`productos`.`id_prov`,`productos`.`precio`
+    ,`tmbtv_pro`.`id`
     FROM `productos`
-    WHERE   `productos`.`id` = $iduser" );
+    ,`tmbtv_pro`
+    WHERE   `productos`.`id` = $iduser AND
+    `tmbtv_pro`.`id` = `productos`.`id_prov`
+    "  );
     $result_sql = mysqli_num_rows($sql);
     if ($result_sql == 0) {
     header('location: productos.php ');
@@ -120,6 +125,13 @@ if(empty($_GET['id'])){
                                 <label for="aumentar">Cantidad para aumentar</label>
                                 <input  id="aumentar" class="form-control" type="text"
                                 name="aumentar" placeholder="Cantidad a aumentar" required >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="n_precio">Precio de compra</label>
+                                <input  id="n_precio" class="form-control" type="text"
+                                name="n_precio" placeholder="precio de compra" required >
                             </div>
                         </div>
 

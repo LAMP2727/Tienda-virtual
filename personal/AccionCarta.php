@@ -37,6 +37,8 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         if (isset($_SESSION['USUADMIN'])){
    
             $USUADMIN= $_SESSION['USUADMIN'];
+            
+            
 
             include("config/conex.php");
 
@@ -47,7 +49,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 , `tmbtv_cli`
                WHERE
                `usuarios`.`usuario`= `tmbtv_cli`.`usuarioo` AND
-               `usuarios`.`usuario`= 'QWERTY'");
+               `usuarios`.`usuario`= '$USUADMIN'");
        
            $result= mysqli_num_rows($query);
 
@@ -74,7 +76,6 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
                 $sql .= "INSERT INTO orden_articulos (order_id, product_id, quantity)
                  VALUES ('".$orderID."', '".$item['id']."', '".$item['qty']."');";
             
-            include("config/conexion.php");
 
             $query_upd = mysqli_query($conexion,"CALL resta_productos('".$item['qty']."','".$item['id']."')");
             $result= mysqli_num_rows($query_upd);

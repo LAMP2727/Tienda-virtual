@@ -43,14 +43,15 @@ if(empty($_GET['id'])){
     header('location: productos.php');
     }
     $iduser = $_GET['id'];
+  
     $sql=mysqli_query($conexion,"SELECT `productos`.`id`, `productos`.`nombre`, `productos`.`descripcion`,
     `productos`.`precio_normal`, `productos`.`precio_rebajado`, `productos`.`cantidad`, `productos`.`imagen`,
      `productos`.`id_categoria`
     FROM `productos`
-    WHERE   `productos`.`id` = $iduser" );
+    WHERE   `productos`.`id` = '$iduser'" );
     $result_sql = mysqli_num_rows($sql);
     if ($result_sql == 0) {
-    header('location: productos.php ');
+    header('location: productos7.php ');
     # code...
     }else{
     

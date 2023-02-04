@@ -107,7 +107,7 @@ if(empty($_GET['id'])){
                             <td><?php echo $sub_total; ?></td>
                            
                         </tr>
-                    <?php } ?>
+                    <?php $total_price = $data['total_price']; } ?>
                     </tbody>
             </table>
             <h1 style="margin-left: 75%;">TOTAL:  <?php echo $total_price ?></h1>

@@ -1,5 +1,3 @@
-<?php
-
 function SoloNumeros(evt)
 {
 if(window.event){
@@ -139,5 +137,3 @@ function validarespacios(parametros){
  }
 }
 
-
-?>

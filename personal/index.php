@@ -44,32 +44,26 @@ include("config/conex.php")
 </head>
 
 <body>
-    <a href="#" class="btn-flotante" id="btnCarrito">Carrito <span class="badge bg-success" id="carrito">0</span></a>
-    <!-- Navigation-->
+   <!-- Navigation-->
     <div class="container d-flex justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light " >
             <div class="container-fluid ">
-                <ul>
-                    <a class="navbar-brand" href="index.php"><img src="../img/logoo.png" width="200" alt="alternative"></a> 
-                </ul>
-                <ul>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </ul>
-                
-                <div class="collapse navbar-collapse " id="navbarNav">
-                    <ul class="navbar-nav d-flex justify-content-center">
-                        <button type="button" class="btn btn-outline-secondary d-flex justify-content-center">
-                            <a href="#" class="nav-link text-info " category="all">TODO</a>
+            <a class="navbar-brand" href="index.php"><img src="../img/logoo.png" width="200" alt="alternative"></a> 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <button type="button" class="btn btn-outline-secondary">
+                            <a href="#" class="nav-link text-info" category="all">Todo</a>
                         </button>
                         
                         <?php
                         include("config/conexion.php"); 
                         $query = mysqli_query($conexion, "SELECT * FROM categorias");
                         while ($data = mysqli_fetch_assoc($query)) { ?>
-                            <button type="button" class="btn btn-outline-secondary d-flex justify-content-center">
-                                <a href="#" class="nav-link text-body " category="<?php echo $data['categoria']; ?>"><?php echo $data['categoria']; ?></a>
+                            <button type="button" class="btn btn-outline-secondary">
+                                <a href="#" class="nav-link text-body" category="<?php echo $data['categoria']; ?>"><?php echo $data['categoria']; ?></a>
                                 <?php } ?>
                             </button>
                             
@@ -90,32 +84,26 @@ if (isset($_SESSION['USUADMIN'])){
                 $result = mysqli_num_rows($query);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query)) { ?>
-                    <div>
-
-                    <nav>
-                    <div  >
-                        <ul class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-outline-secondary " style="margin-top: 15px;">
-                                <a href="consultas.php" class="nav-link text-info" ><?php echo $data['nombre']; ?></a>
-                            </button> 
-                        </ul>
-                    </div>
-                    </div>
-                    </nav>
-                    
+                    <a href="consultas.php" style="margin-left: 15px;border-top-width: 10px;padding-top: 10px;"><?php echo $data['nombre']; ?> </a>
+                           
                             <?php
                     }}}
                             ?>
                     
-                    <nav>
-                    <ul class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-outline-secondary d-flex justify-content-center" 
-                            style="margin-left: 30px;margin-right: 0px;margin-top: 15px;" >
-                            <a href="../salir.php" class="nav-link text-info" >SALIR</a>
+                   
+                           
+         
+        <nav class="navbar navbar-expand-lg navbar-light " >
+            
+                            <button type="button" class="btn btn-outline-secondary" 
+                             style="margin-left: 30px;margin-right: 0.;margin-right: 0px;" >
+                            <a href="../salir.php" class="nav-link text-info" >Salir</a>
                         </button>
-                    </ul>
-                </nav>
+
+
                         </div></div> </div>
+                           
+                   
     <!-- Header-->
     
     <header class="bg-dark py-5">
@@ -175,15 +163,13 @@ if (isset($_SESSION['USUADMIN'])){
                                     </div>
                                 </div>
                                 <!-- Product actions-->
-                                
+                                <div class="text-center">
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent " class="agregar">
                                 
                                 <a class="btn btn-success " and class="btn btn-success agregar "
                                  href="AccionCarta.php?action=addToCart&id=<?php echo $data["id"]; ?>">Enviar al Carrito</a>
-                                    <div class="text-center">
-                                        <a class="btn btn-success agregar" 
-                                        data-id="<?php echo $data['id']; ?>" href="AccionCarta.php?action=addToCart&id=<?php echo $data["id"]; ?>">
-                                        Agregar</a></div>
+                                    
+                                        </div>
                                 </div>
                             </div>
                         </div>

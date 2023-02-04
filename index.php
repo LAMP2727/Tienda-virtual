@@ -45,8 +45,7 @@ include("config/conex.php")
 
 
 <body>
-    <a href="VerCarta.php" class="btn-flotante" >Carrito <span class="badge bg-success" id="carrito">0</span></a>
-    <!-- Navigation-->
+  
     <div class="container d-flex justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light " >
             <div class="container-fluid ">
@@ -130,15 +129,13 @@ include("config/conex.php")
                                     </div>
                                 </div>
                                 <!-- Product actions-->
-                                
+                                <div class="text-center">
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent " class="agregar">
                                 
                                 <a class="btn btn-success " and class="btn btn-success agregar "
                                  href="AccionCarta.php?action=addToCart&id=<?php echo $data["id"]; ?>">Enviar al Carrito</a>
-                                    <div class="text-center">
-                                        <a class="btn btn-success agregar" 
-                                        data-id="<?php echo $data['id']; ?>" href="AccionCarta.php?action=addToCart&id=<?php echo $data["id"]; ?>">
-                                        Agregar</a></div>
+                                    
+                                        </div>
                                 </div>
                             </div>
                         </div>

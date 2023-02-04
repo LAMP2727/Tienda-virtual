@@ -89,6 +89,7 @@ include("config/conex.php")
                      if (isset($_SESSION['USUADMIN'])){
    
                         $USUADMIN= $_SESSION['USUADMIN'];
+                      
             
                         include("config/conex.php");
             

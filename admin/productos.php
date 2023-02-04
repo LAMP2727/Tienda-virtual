@@ -65,7 +65,7 @@ include("includes/header.php"); ?>
                      `productos`.`descripcion`, `productos`.`precio_normal`, `productos`.`precio_rebajado`,
                       `productos`.`cantidad`, `productos`.`imagen`, `productos`.`id_categoria`,
                        `categorias`.`id`, `categorias`.`categoria`, `productos`.`id_prov`,
-                        `tmbtv_pro`.`id`, `tmbtv_pro`.`TMPRO_NOC`, `productos`.`precio`
+                        `tmbtv_pro`.`id`, `tmbtv_pro`.`TMPRO_NOC`, `productos`.`precio`,`productos`.`id`
                     FROM `productos` 
                         LEFT JOIN `categorias` ON `productos`.`id_categoria` = `categorias`.`id`
                         LEFT JOIN `tmbtv_pro` ON `productos`.`id_prov` = `tmbtv_pro`.`id`;");

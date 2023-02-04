@@ -15,7 +15,58 @@ if(empty($_SESSION['active']))
 <?php
 include("config/conex.php");
 
-error_reporting(0);
+
+if(empty($_GET['id'])){
+    header('location: consulta.php');
+    }
+    $iduser = $_GET['id'];
+
+$query = mysqli_query($conexion, "UPDATE orden
+        SET status='2'
+        
+        WHERE  id = '$iduser' ");
+        if ($query) {
+
+            if(empty($_GET['id'])){
+                header('location: consultas9.php');
+                }
+                $iduser = $_GET['id'];
+                                $query = mysqli_query($conexion, "SELECT `orden_articulos`.`id`, 
+                                `orden_articulos`.`order_id`, `orden_articulos`.`product_id`, 
+                                `orden_articulos`.`quantity`, `productos`.`id`,
+                                `productos`.`nombre`,`productos`.`precio_rebajado`
+                                FROM `orden_articulos`
+                                    , `productos`
+                                WHERE
+                                    `productos`.`id` = `orden_articulos`.`product_id` AND
+                                    `orden_articulos`.`order_id` = '$iduser' ");
+                                while ($data = mysqli_fetch_assoc($query)) { 
+            
+                                    $preci_rebajado=$data['precio_rebajado'];
+                                    $quantity=$data['quantity'];
+                                    $id_productos=$data['id'];
+
+      $query = mysqli_query($conexion, "INSERT INTO bi_productos (cantidad,id)
+        VALUE ($quantity,$id_productos)");
+        if ($query) {
+            $query_upd = mysqli_query($conexion,"CALL cantidad_productos_cancelado('$quantity','$id_productos')");
+            $result= mysqli_num_rows($query_upd);
+          
+               if($result > 0){
+                                            
+                header('Location: consultas3.php');
+                
+         
+       
+    }
+ }
+                                  
+
+
+           
+                header('Location: consultas3.php');
+            }
+        }
 
 ?>
 
@@ -125,49 +176,22 @@ if(empty($_GET['id'])){
     header('location: consultas9.php');
     }
     $iduser = $_GET['id'];
-                    $query = "SELECT `orden_articulos`.`id`, 
+                    $query = mysqli_query($conexion, "SELECT `orden_articulos`.`id`, 
                     `orden_articulos`.`order_id`, `orden_articulos`.`product_id`, 
                     `orden_articulos`.`quantity`, `productos`.`id`,
                     `productos`.`nombre`,`productos`.`precio_rebajado`
                     FROM `orden_articulos`
-                    INNER JOIN `productos`
+                        , `productos`
                     WHERE
                         `productos`.`id` = `orden_articulos`.`product_id` AND
-                        `orden_articulos`.`order_id` = '$iduser' ";
+                        `orden_articulos`.`order_id` = '$iduser' ");
+                    while ($data = mysqli_fetch_assoc($query)) { 
 
-                    $res= mysqli_query($conexion,$query);
-
-                    $data = mysqli_fetch_assoc($res);
-
-                    while ($data) { 
-
-                        $id_propro=$data['product_id'];
                         $preci_rebajado=$data['precio_rebajado'];
                         $quantity=$data['quantity'];
                         $sub_total = $preci_rebajado * $quantity ;
-
-
-                        $query = "INSERT INTO bi_productos (cantidad,id)
-                        VALUE ($quantity,$id_propro)";
-
-                        $res = mysqli_query($conexion, $query);
-
-
-                        if ($res) {
-                            $query_upd = mysqli_query($conexion,"CALL cantidad_productos('$quantity','$id_propro')");
-                            $result= mysqli_num_rows($query_upd);
-                        
-                            if($result > 0){
-                            }
-                        
-                        }
-                    
-                    
-                
-                
                         
                         ?>
-                       
                         <tr>
                             
                             <td><?php echo $data['nombre']; ?></td>

@@ -78,7 +78,7 @@ if(!empty($_SESSION['active']))
 </head>
 
 <body>
-<script src="/libreria/validaciones.php"></script>
+<script src="libreria/validaciones.php"></script>
 <a class="navbar-brand" href="index.php"><img src="img/logoo.png" width="200" alt="alternative" style="margin-right: 900px ;padding-top: 20px;"></a> 
 
     <main style="margin-top: 0px;">
@@ -107,35 +107,37 @@ if(!empty($_SESSION['active']))
             
 
 
-                    <h2>INICIAR SESION</h2>
-                    <p>Usuario<input type="text" pattern=[a-zA-Z0-9 ]+ maxlength="15" required
-                    name="usuarioo" placeholder="ingrese el usuario"></p>
-
-
-                    <p>Contraseña<input type="password" pattern=[a-zA-Z0-9 ]+  maxlength="8"
+                <h2>INICIAR SESION</h2>
+                    
+                   
+                    <p>Usuario<input onkeypress="return Especialess(e);" onKeyUP="this.value=this.value.toUpperCase();" id="usuarioo" class="form-control" type="text" 
+                                name="usuarioo" placeholder="Nombre de usuario" required ></p>
+                    
+                    
+                    <p>Contraseña<input type="password" 
                     required name="password" placeholder="ingrese la contraseña"></pack>
                     <button>Entrar</button>
-                    </form></form>
+                    </form>
 
             <form action="registro.php" method="POST" class="formulario__register" 
             style="padding-top: 0px; padding-bottom: 0px; height: 500px; margin-bottom: 100px;">
                 <h2 style="margin-bottom: 0px;">REGISTRARSE</h2>
-                <input onkeypress="return SoloNumeros(evt);" onKeyUP="this.value=this.value.toUpperCase();" type="text"  pattern=[a-zA-Z ]  required name="ced_comp" 
-                placeholder="Numero de Cedula" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
-                <input type="text"  pattern=[a-zA-Z ]  required name="nom_comp" 
-                placeholder="Nombre" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
-                <input type="text"  pattern=[a-zA-Z ]  required name="ape_comp" 
-                placeholder="Apellido" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
+                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="ced_comp" class="form-control" type="text"
+                                name="ced_comp" placeholder="Numero de cedula" maxlength="8" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
+                                <input onkeypress="return SoloLetras(event);" onKeyUP="this.value=this.value.toUpperCase();" id="nom_comp" class="form-control" type="text"
+                                name="nom_comp" placeholder="Nombre"  style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
+                    <input onkeypress="return SoloLetras(event);" onKeyUP="this.value=this.value.toUpperCase();" id="ape_comp" class="form-control" type="text"
+                                name="ape_comp" placeholder="Apellido"  style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
                 <input type="email" required name="corr_ele" 
                 placeholder="Correo electronico" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
-               <input type="text" pattern=[0-9 ] 
-                maxlength="15"required name="tel_comp" placeholder="Numero de Telefono" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
-               <input type="text" pattern=[a-zA-Z0-9 ]+ 
-                maxlength="15"required name="usuarioo" placeholder="Nombre de usuario" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
+                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="tel_comp" class="form-control" type="text"
+                                name="tel_comp" placeholder="Numero de Telefono"  maxlength="11" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
+                                <input onkeypress="return Especialess(event);" onKeyUP="this.value=this.value.toUpperCase();" id="usuarioo" class="form-control" type="text"
+                                name="usuarioo" placeholder="Nombre de usuario"  style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
                 <input type="password" [a-zA-Z0-9 ]+ 
                 maxlength="8"required name="password" placeholder="Password" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
-                <input type="text" pattern=[a-zA-Z0-9 ]+ 
-                maxlength="15"required name="dir_comp" placeholder="Direcion de envio" style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
+                <input onkeypress="return Especial(event);" onKeyUP="this.value=this.value.toUpperCase();" id="dir_comp" class="form-control" type="text"
+                                name="dir_comp" placeholder="Direcion de envio"  style="padding-top: 0px;padding-bottom: 0px;height: 30px;">
                 <button style="margin-top: 15px;">Registrarse</button>
             </form>
             </div>
