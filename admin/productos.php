@@ -121,7 +121,7 @@ include("includes/header.php"); ?>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                                <input id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre" required>
+                                <input onkeypress="return Especial(event);" onKeyUP="this.value=this.value.toUpperCase();" id="nombre" class="form-control" type="text" name="nombre" placeholder="Nombre" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -133,19 +133,19 @@ include("includes/header.php"); ?>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="descripcion">Descripción</label>
-                                <textarea id="descripcion" class="form-control" name="descripcion" placeholder="Descripción" rows="3" required></textarea>
+                                <textarea onKeyUP="this.value=this.value.toUpperCase();" id="descripcion" class="form-control" name="descripcion" placeholder="Descripción" rows="3" required></textarea>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="p_normal">Precio Normal</label>
-                                <input id="p_normal" class="form-control" type="text" name="p_normal" placeholder="Precio Normal" required>
+                                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="p_normal" class="form-control" type="text" name="p_normal" placeholder="Precio Normal" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="p_rebajado">Precio Rebajado</label>
-                                <input id="p_rebajado" class="form-control" type="text" name="p_rebajado" placeholder="Precio Rebajado" required>
+                                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="p_rebajado" class="form-control" type="text" name="p_rebajado" placeholder="Precio Rebajado" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -181,7 +181,7 @@ include("includes/header.php"); ?>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="p_compra">Precio de Compra</label>
-                                <input id="p_compra" class="form-control" type="text" name="p_compra" placeholder="Precio de Compra" required>
+                                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="p_compra" class="form-control" type="text" name="p_compra" placeholder="Precio de Compra" required>
                             </div>
                         </div>
                     </div>

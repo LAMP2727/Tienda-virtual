@@ -65,7 +65,7 @@ if(empty($_GET['id'])){
                             <div class="form-group">
                                 <label for="TMPRO_RIF">Rif</label>
                                 <input onkeypress="return Especialess(e);" onKeyUP="this.value=this.value.toUpperCase();" id="TMPRO_RIF" class="form-control" type="text" 
-                                name="TMPRO_RIF" placeholder="Nombre" required value="<?php echo $TMPRO_RIF ?>" >
+                                name="TMPRO_RIF" placeholder="V-XXXXXXXX-F" maxlength="12" required value="<?php echo $TMPRO_RIF ?>" >
                             </div>
                             </div>
                         <div class="col-md-6">
