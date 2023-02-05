@@ -38,7 +38,6 @@ if(empty($_GET['id'])){
     while($data = mysqli_fetch_array($sql)){
     $id = $data['id'];
     $nombre = $data['categoria'];
-   
     
     
     
@@ -60,7 +59,6 @@ if(empty($_GET['id'])){
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nombre">Nombre</label>
-                    <label for="nombre">Nombre</label>
                                 <input onkeypress="return SoloLetras(event);" onKeyUP="this.value=this.value.toUpperCase();" id="nombre" class="form-control" type="text" 
                                 name="nombre" placeholder="Nombre" required value="<?php echo $nombre ?>" >
                     </div>

@@ -21,9 +21,9 @@ if (isset($_POST)) {
         $foto = $fecha . ".jpg";
         $destino = "../assets/img/" . $foto;
         $query = mysqli_query($conexion, "INSERT INTO productos(id, nombre, descripcion,
-         precio_normal, precio_rebajado, cantidad, imagen, id_categoria, id_prov, precio) 
-         VALUES ('$id', '$nombre', '$descripcion', '$p_normal', '$p_rebajado', $cantidad,
-          '$foto', $categoria, $id_prove, $p_compra)");
+        precio_normal, precio_rebajado, cantidad, imagen, id_categoria, id_prov, precio) 
+        VALUES ('$id', '$nombre', '$descripcion', '$p_normal', '$p_rebajado', $cantidad,
+        '$foto', $categoria, $id_prove, $p_compra)");
         if ($query) {
             if (move_uploaded_file($tmpname, $destino)) {
                 header('Location: index.php');
@@ -32,6 +32,7 @@ if (isset($_POST)) {
     }
 }
 include("includes/header.php"); ?>
+<script src="../libreria/validaciones.php"></script>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Productos</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="abrirProducto"><i class="fas fa-plus fa-sm text-white-50"></i> Nuevo</a>
@@ -62,9 +63,9 @@ include("includes/header.php"); ?>
                 <tbody>
                     <?php
                     $query = mysqli_query($conexion, "SELECT `productos`.`id`, `productos`.`nombre`,
-                     `productos`.`descripcion`, `productos`.`precio_normal`, `productos`.`precio_rebajado`,
-                      `productos`.`cantidad`, `productos`.`imagen`, `productos`.`id_categoria`,
-                       `categorias`.`id`, `categorias`.`categoria`, `productos`.`id_prov`,
+                    `productos`.`descripcion`, `productos`.`precio_normal`, `productos`.`precio_rebajado`,
+                    `productos`.`cantidad`, `productos`.`imagen`, `productos`.`id_categoria`,
+                    `categorias`.`id`, `categorias`.`categoria`, `productos`.`id_prov`,
                         `tmbtv_pro`.`id`, `tmbtv_pro`.`TMPRO_NOC`, `productos`.`precio`,`productos`.`id`
                     FROM `productos` 
                         LEFT JOIN `categorias` ON `productos`.`id_categoria` = `categorias`.`id`
@@ -126,7 +127,7 @@ include("includes/header.php"); ?>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="cantidad">Cantidad</label>
-                                <input id="cantidad" class="form-control" type="text" name="cantidad" placeholder="Cantidad" required>
+                                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="cantidad" class="form-control"  type="text" name="cantidad" placeholder="Cantidad" required>
                             </div>
                         </div>
                         <div class="col-md-12">
