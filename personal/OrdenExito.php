@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_REQUEST['id'])) {
   header("Location: index.php");
 }
@@ -36,8 +37,8 @@ if (!isset($_REQUEST['id'])) {
 
       <div class="panel-body">
 
-        <h1>Estado de tu Requerimiento</h1>
-        <p>La Orden se ha enviado exitósamente. El ID de tu pedido es <?php echo $_GET['id']; ?></p>
+        <h1><?=$_SESSION['USUADMIN']?> este es el estado de tu Pedido</h1>
+        <p>La Orden se ha enviado exitósamente! a FULL STORE y a tu correo. El ID de tu pedido es <?php echo $_GET['id']; ?></p>
       </div>
      
     <!--Panek cierra-->

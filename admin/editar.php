@@ -105,7 +105,7 @@ if(empty($_GET['id'])){
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="descripcion">Descripción</label>
-                                <textarea id="descripcion" class="form-control" 
+                                <textarea onKeyUP="this.value=this.value.toUpperCase();" id="descripcion" class="form-control" 
                                 name="descripcion" placeholder="<?php echo $descripcion ?>"
                                 rows="3" required value="<?php echo $descripcion ?>"><?php echo $descripcion ?></textarea>
                             </div>
@@ -113,7 +113,7 @@ if(empty($_GET['id'])){
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="p_normal">Precio Normal</label>
-                                <input id="p_normal" class="form-control" 
+                                <input onkeypress="return SoloNumeros(event);" id="p_normal" class="form-control" 
                                 type="text" name="p_normal" placeholder="Precio Normal" required
                                 value="<?php echo $precio_normal ?>">
                             </div>
@@ -121,7 +121,7 @@ if(empty($_GET['id'])){
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="p_rebajado">Precio Rebajado</label>
-                                <input id="p_rebajado" class="form-control" type="text" 
+                                <input onkeypress="return SoloNumeros(event);" id="p_rebajado" class="form-control" type="text" 
                                 name="p_rebajado" placeholder="Precio Rebajado" required
                                 value="<?php echo $precio_rebajado ?>">
                             </div>

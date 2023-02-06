@@ -4,10 +4,10 @@
 
 <?php include("includes/header.php"); ?>
     <!-- Navigation-->
-    <div class="container d-flex justify-content-center">t
+    <div class="container d-flex justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light " >
             <div class="container-fluid ">
-               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">

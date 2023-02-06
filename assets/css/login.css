@@ -159,3 +159,24 @@ display: none;
 	
 }
 
+.navbar-brand {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+img {
+	width: 400px;
+}
+
+@media (max-width: 430px) {
+	img {
+		width: 200px;
+	}
+
+	.caja__trasera {
+		margin-top: 0px;
+		padding-top: 0;
+		height: 300px;
+	}
+}
