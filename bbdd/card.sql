@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-02-2023 a las 21:19:05
+-- Tiempo de generación: 05-02-2023 a las 22:16:25
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `card`
 --
+CREATE DATABASE IF NOT EXISTS `card` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `card`;
 
 DELIMITER $$
 --
@@ -97,7 +99,8 @@ INSERT INTO `bi_productos` (`id_bi`, `id`, `cantidad`, `fecha`) VALUES
 (9, 16, 1, '2023-02-03 20:42:52'),
 (10, 16, 242, '2023-02-03 20:42:52'),
 (11, 6, 41, '2023-02-03 21:23:05'),
-(12, 5, 918, '2023-02-04 12:36:12');
+(12, 5, 918, '2023-02-04 12:36:12'),
+(13, 16, 241, '2023-02-05 16:48:26');
 
 -- --------------------------------------------------------
 
@@ -171,7 +174,8 @@ INSERT INTO `orden` (`id`, `customer_id`, `total_price`, `created`, `modified`, 
 (11, 0, 5505, '2023-01-24 14:42:53', '2023-01-24 14:42:53', 3),
 (12, 0, 10, '2023-01-24 15:08:26', '2023-01-24 15:08:26', 3),
 (13, 0, 5, '2023-01-24 15:10:50', '2023-01-24 15:10:50', 1),
-(14, 27542563, 20, '2023-02-04 16:36:12', '2023-02-04 16:36:12', 3);
+(14, 27542563, 20, '2023-02-04 16:36:12', '2023-02-04 16:36:12', 3),
+(15, 27542563, 111, '2023-02-05 20:48:26', '2023-02-05 20:48:26', 1);
 
 -- --------------------------------------------------------
 
@@ -199,7 +203,8 @@ INSERT INTO `orden_articulos` (`id`, `order_id`, `product_id`, `quantity`) VALUE
 (6, 4, 16, 7),
 (7, 5, 6, 1),
 (8, 5, 5, 1),
-(9, 14, 5, 1);
+(9, 14, 5, 1),
+(10, 15, 16, 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +232,7 @@ CREATE TABLE `productos` (
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_normal`, `precio_rebajado`, `cantidad`, `imagen`, `id_categoria`, `id_prov`, `precio`) VALUES
 (5, 'Vino', 'Ninguna', '28.00', '20.00', 918, '20211212082421.jpg', 2, 1, '601.63'),
 (6, 'Coca cola', '1.5 ml', '5.00', '5.00', 41, '20211212082628.jpg', 2, 0, '0.00'),
-(16, 'asdfasdf', 'asdfsdaf', '123.00', '111.00', 242, '20230204012822.jpg', 2, 15, '99.75');
+(16, 'asdfasdf', 'asdfsdaf', '123.00', '111.00', 241, '20230204012822.jpg', 2, 15, '99.75');
 
 --
 -- Disparadores `productos`
@@ -707,7 +712,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `bi_productos`
 --
 ALTER TABLE `bi_productos`
-  MODIFY `id_bi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_bi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -725,13 +730,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_articulos`
 --
 ALTER TABLE `orden_articulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
