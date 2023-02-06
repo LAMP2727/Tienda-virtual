@@ -20,7 +20,7 @@ if(!empty($_SESSION['active']))
             $user = mysqli_real_escape_string($conexion,$_POST['usuarioo']);
             $pass = md5(mysqli_real_escape_string($conexion,$_POST['password']));
             
-            $query = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario = '$user' AND clave = '$pass'");
+            $query = mysqli_query($conexion, "SELECT * FROM usuarios INNER JOIN tmbtv_cli c ON c.usuarioo = usuarios.usuario WHERE usuario = '$user' AND clave = '$pass'");
         
             $result= mysqli_num_rows($query);
 
@@ -36,6 +36,8 @@ if(!empty($_SESSION['active']))
                 $_SESSION['IDADMIN'] = $data['rol'];
                 $_SESSION['USUADMIN'] = $data['usuario'];
                 $_SESSION['CONTADMIN'] = $data['clave'];
+                $_SESSION['EMAIL'] = $data['corr_ele'];
+                $_SESSION['TELEFONO'] = $data['tel_comp'];
                 
                 header('location: admin/index.php');
              } else if ($roles=="personal")
@@ -45,6 +47,9 @@ if(!empty($_SESSION['active']))
                 $_SESSION['IDADMIN'] = $data['rol'];
                 $_SESSION['USUADMIN'] = $data['usuario'];
                 $_SESSION['CONTADMIN'] = $data['clave'];
+                $_SESSION['EMAIL'] = $data['corr_ele'];
+                $_SESSION['TELEFONO'] = $data['tel_comp'];
+
                 
                 header('location: personal/index.php');}
             }else {
