@@ -79,7 +79,7 @@ if(!empty($_SESSION['active']))
 
 <body>
 <script src="libreria/validaciones.php"></script>
-<a class="navbar-brand" href="index.php"><img src="img/logoo.png" width="200" alt="alternative" style="margin-right: 900px ;padding-top: 20px;"></a> 
+<a class="navbar-brand" href="index.php"><img src="img/logoo.png"  alt="alternative" ></a> 
 
     <main style="margin-top: 0px;">
         <div class="contenedor__todo">

@@ -27,7 +27,7 @@ include("config/conex.php")
 <link rel="stylesheet" href="../styles.css">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>FULL STORE!!!</title>
@@ -40,7 +40,26 @@ include("config/conex.php")
     <link href="../assets/css/estilos.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="../estiloscss.css">
-    
+    <style>
+        .navbar-brand img {
+            width: 200px;
+        }
+
+        @media(max-width: 425px) {
+            .navbar-brand img {
+                width: 150px;
+                
+            }
+            .navbar-expand-lg {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-items: center;
+                align-items: center;
+            }
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -48,14 +67,14 @@ include("config/conex.php")
     <div class="container d-flex justify-content-center">
         <nav class="navbar navbar-expand-lg navbar-light " >
             <div class="container-fluid ">
-            <a class="navbar-brand" href="index.php"><img src="../img/logoo.png" width="200" alt="alternative"></a> 
+            <a class="navbar-brand" href="index.php"><img src="../img/logoo.png" alt="alternative"></a> 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <button type="button" class="btn btn-outline-secondary">
-                            <a href="#" class="nav-link text-info" category="all">Todo</a>
+                            <a href="#" class="nav-link text-info" category="all">TODO</a>
                         </button>
                         
                         <?php
@@ -66,11 +85,14 @@ include("config/conex.php")
                                 <a href="#" class="nav-link text-body" category="<?php echo $data['categoria']; ?>"><?php echo $data['categoria']; ?></a>
                                 <?php } ?>
                             </button>
-                            
-                    </ul>
+
+                            </ul>
                 </div>
             </div>
-        </nav> <?php
+        </nav>
+                       
+        <nav class="navbar navbar-expand-lg navbar-light " >
+                     <?php
 
 if (isset($_SESSION['USUADMIN'])){
    
@@ -84,7 +106,13 @@ if (isset($_SESSION['USUADMIN'])){
                 $result = mysqli_num_rows($query);
                 if ($result > 0) {
                     while ($data = mysqli_fetch_assoc($query)) { ?>
-                    <a href="consultas.php" style="margin-left: 15px;border-top-width: 10px;padding-top: 10px;"><?php echo $data['nombre']; ?> </a>
+                    
+                        <button style="margin-left: 30px;margin-right: 0.;margin-right: 0px;" class="btn btn-outline-secondary">
+                            <a href="consultas.php" class="nav-link text-body"><?php echo $data['nombre']; ?> </a>
+                        </button>
+                    
+                    
+                    
                            
                             <?php
                     }}}
@@ -92,12 +120,12 @@ if (isset($_SESSION['USUADMIN'])){
                     
                    
                            
-         
-        <nav class="navbar navbar-expand-lg navbar-light " >
+                 
+        
             
-                            <button type="button" class="btn btn-outline-secondary" 
+                        <button type="button" class="btn btn-outline-secondary" 
                              style="margin-left: 30px;margin-right: 0.;margin-right: 0px;" >
-                            <a href="../salir.php" class="nav-link text-info" >Salir</a>
+                            <a href="../salir.php" class="nav-link text-info" >SALIR</a>
                         </button>
 
 
@@ -232,3 +260,4 @@ if (isset($_SESSION['USUADMIN'])){
 </body>
 
 </html>
+

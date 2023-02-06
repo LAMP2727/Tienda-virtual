@@ -39,6 +39,7 @@ include("config/conex.php")
                 <thead class="thead-dark">
                     <tr>
                         <th>Id</th>
+                        <th>Usuario</th>
                         <th>Monto</th>
                         <th>Fecha</th>
                         <th>Estado</th>
@@ -48,18 +49,15 @@ include("config/conex.php")
                 </thead>
                 <tbody>
                 <?php 
-                    $query = mysqli_query($conexion, "SELECT `orden`.`id`, `orden`.`customer_id`
-                    , `orden`.`total_price`, `orden`.`created`, `orden`.`status`,
-                     `status`.`id_estatus`, `status`.`des_estatus`
-                    FROM `orden`
-                        , `status` 
-                    WHERE
-                    
-                     `orden`.`status`= `status`.`id_estatus` AND
-                     `orden`.`status` = '1'");
+                    $query = mysqli_query($conexion, 
+                    "SELECT o.id, o.customer_id, c.usuarioo, o.total_price, o.created, o.status, s.id_estatus, s.des_estatus FROM orden o 
+                    INNER JOIN tmbtv_cli c ON o.customer_id = c.ced_comp 
+                    INNER JOIN status s ON o.status = s.id_estatus
+                    WHERE o.status = '1'");
                     while ($data = mysqli_fetch_assoc($query)) { ?>
                         <tr>
                             <td><?php echo $data['id']; ?></td>
+                            <td><?php echo $data['usuarioo']; ?></td>
                             <td><?php echo $data['total_price']; ?></td>
                             <td><?php echo $data['created']; ?></td>
                             <td><?php echo $data['des_estatus']; ?></td>
