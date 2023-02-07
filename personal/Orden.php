@@ -41,7 +41,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
 
-                <h3>Gracias por usar los servicios de FULL STORE su pedido ha sido al administrador por favor contactenos para finalizar su compra: 0412-7505134     <strong style="color: darkblue;">fullstore@gmail.com</strong> </h3>
+                <h3>Gracias por usar los servicios de FULL STORE su pedido ha sido enviado al administrador por favor contactenos para finalizar su compra: 0412-7505134     <strong style="color: darkblue;">fullstore@gmail.com</strong> </h3>
                 
             </div>
 
