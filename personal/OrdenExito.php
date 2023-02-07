@@ -41,7 +41,8 @@ $content = "<!DOCTYPE html>
       <div class='panel-body'>
 
         <h1>" .$_SESSION['USUADMIN']. " este es el estado de tu Pedido</h1>
-        <p>La Orden se ha enviado exitósamente! a FULL STORE y a tu correo. El ID de tu pedido es" . $_GET['id'] . "</p>
+        <p>La Orden se ha enviado exitósamente! a FULL STORE y a tu correo. El ID de tu pedido es " . $_GET['id'] . "</p>
+        <h3>Gracias por usar los servicios de FULL STORE su pedido ha sido enviado al administrador por favor contactenos para finalizar su compra: 0412-7505134     <strong style='color: darkblue;'>fullstore@gmail.com</strong> </h3>
       </div>
 
     
@@ -91,6 +92,7 @@ $mail->send();
 
         <h1><?=$_SESSION['USUADMIN']?> este es el estado de tu Pedido</h1>
         <p>La Orden se ha enviado exitósamente! a FULL STORE y a tu correo. El ID de tu pedido es <?php echo $_GET['id']; ?></p>
+        <h3>Gracias por usar los servicios de FULL STORE su pedido ha sido enviado al administrador por favor contactenos para finalizar su compra: 0412-7505134     <strong style="color: darkblue;">fullstore@gmail.com</strong> </h3>
       </div>
 
     
