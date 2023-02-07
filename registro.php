@@ -70,7 +70,7 @@ if(mysqli_num_rows($verificar_usuario) > 0){
   '; 
   exit();
 }
-$conexion=mysqli_connect("localhost","root","","card");
+$conexion=mysqli_connect("localhost","root","Kevin$9570","card");
 
 
 

@@ -2,7 +2,7 @@
 
     $host = "localhost";
     $user = "root";
-    $clave = "";
+    $clave = "Kevin$9570";
     $bd = "card";
     $conexion = mysqli_connect($host,$user,$clave,$bd);
     if (mysqli_connect_errno()){

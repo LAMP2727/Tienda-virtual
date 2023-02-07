@@ -40,7 +40,7 @@ $content = "<!DOCTYPE html>
 
       <div class='panel-body'>
 
-        <h1>" .$_SESSION['USUADMIN']. "este es el estado de tu Pedido</h1>
+        <h1>" .$_SESSION['USUADMIN']. " este es el estado de tu Pedido</h1>
         <p>La Orden se ha enviado exitósamente! a FULL STORE y a tu correo. El ID de tu pedido es" . $_GET['id'] . "</p>
       </div>
 
