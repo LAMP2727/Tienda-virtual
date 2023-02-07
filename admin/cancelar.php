@@ -1,6 +1,9 @@
 
 <?php 
 session_start();
+
+require_once ('../libreria/Mailsender.php');
+
 if($_SESSION['IDADMIN'] !="admin")
 {
     header('location: ../index.php');
@@ -40,6 +43,66 @@ $query = mysqli_query($conexion, "UPDATE orden
                                 WHERE
                                     `productos`.`id` = `orden_articulos`.`product_id` AND
                                     `orden_articulos`.`order_id` = '$iduser' ");
+
+$idusu = $_GET['usu'];
+
+            $querys = mysqli_query($conexion, "SELECT corr_ele, usuarioo FROM tmbtv_cli WHERE usuarioo = '$idusu'");
+                            $data = mysqli_fetch_assoc($querys);
+
+$content = "<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <title>Orden Completado - PHP Carrito de Compras</title>
+    <meta charset='utf-8'>
+    <style>
+    .container {
+        padding: 20px;
+    }
+
+    p {
+        color: #34a853;
+        font-size: 18px;
+    }
+    </style>
+</head>
+</head>
+
+<body>
+    <div class='container'>
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+
+        <ul class='nav nav-pills'>
+        <a class='navbar-brand' href='index.php'><img src='../img/logoo.png' width='200' alt='alternative'></a> 
+        
+            </ul>
+        </div>
+
+        <div class='panel-body'>
+
+        <h1>" .$data['usuarioo']. " este es el estado de tu Pedido</h1>
+        <p>Su orden ha sido rechazada por no contactarse con el administrador dentro de las 24 horas</p>
+        <h3>Gracias por usar los servicios de FULL STORE, cualquier inconveniente contáctenos: 0412-7505134     <strong style='color: darkblue;'>fullstore@gmail.com</strong> </h3>
+        </div>
+
+    
+        
+    <!--Panek cierra-->
+    </div>
+</body>
+
+</html>";
+
+
+
+$mail = new Mailsender;
+$mail->setDestination($data['corr_ele'], $data['usuarioo'], 'Orden de la tienda FULL STORE', $content, true);
+$mail->send();
+
+
+
                                 while ($data = mysqli_fetch_assoc($query)) { 
             
                                     $preci_rebajado=$data['precio_rebajado'];
@@ -52,6 +115,9 @@ $query = mysqli_query($conexion, "UPDATE orden
             $query_upd = mysqli_query($conexion,"CALL cantidad_productos_cancelado('$quantity','$id_productos')");
             $result= mysqli_num_rows($query_upd);
           
+
+
+
                if($result > 0){
                                             
                 header('Location: consultas3.php');

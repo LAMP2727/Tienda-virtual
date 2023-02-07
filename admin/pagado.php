@@ -1,6 +1,9 @@
 
 <?php 
 session_start();
+
+require_once ('../libreria/Mailsender.php');
+
 if($_SESSION['IDADMIN'] !="admin")
 {
     header('location: ../index.php');
@@ -29,7 +32,65 @@ $query = mysqli_query($conexion, "UPDATE orden
            
                 header('Location: consultas.php');
             }
+
+            $idusu = $_GET['usu'];
+
+            $query = mysqli_query($conexion, "SELECT corr_ele, usuarioo FROM tmbtv_cli WHERE usuarioo = '$idusu'");
+                            $data = mysqli_fetch_assoc($query);
+            
+    $content = "<!DOCTYPE html>
+    <html lang='en'>
+    
+    <head>
+        <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <title>Orden Completado - PHP Carrito de Compras</title>
+        <meta charset='utf-8'>
+        <style>
+        .container {
+            padding: 20px;
+        }
+    
+        p {
+            color: #34a853;
+            font-size: 18px;
+        }
+        </style>
+    </head>
+    </head>
+    
+    <body>
+        <div class='container'>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>
+    
+            <ul class='nav nav-pills'>
+            <a class='navbar-brand' href='index.php'><img src='../img/logoo.png' width='200' alt='alternative'></a> 
+            
+                </ul>
+            </div>
+    
+            <div class='panel-body'>
+    
+            <h1>" .$data['usuarioo']. " este es el estado de tu Pedido</h1>
+            <p>Ha sido pagado exitósamente!, por favor espera en tu casa a que llegue tu pedido</p>
+            <h3>Gracias por usar los servicios de FULL STORE por favor contactenos si hay algún inconveniente con su compra: 0412-7505134     <strong style='color: darkblue;'>fullstore@gmail.com</strong> </h3>
+            </div>
+    
         
+            
+        <!--Panek cierra-->
+        </div>
+    </body>
+    
+    </html>";
+
+   
+    
+    $mail = new Mailsender;
+    $mail->setDestination($data['corr_ele'], $data['usuarioo'], 'Orden de la tienda FULL STORE', $content, true);
+    $mail->send();
+
+
 
 ?>
 

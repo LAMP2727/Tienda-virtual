@@ -62,7 +62,7 @@ include("config/conex.php")
                             <td><?php echo $data['created']; ?></td>
                             <td><?php echo $data['des_estatus']; ?></td>
                             <td>
-                            <form method="post" action="ver.php?accion=cli&id=<?php echo $data['id']; ?>" >
+                            <form method="post" action="ver.php?accion=cli&id=<?php echo $data['id']; ?>&usu=<?=$data['usuarioo']?>" >
                                     <button class="btn btn-info" type="submit">Ver</button>
                                 </form>
                                 
