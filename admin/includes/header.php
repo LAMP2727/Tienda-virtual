@@ -31,6 +31,7 @@ if(empty($_SESSION['active']))
     <!-- Custom styles for this template-->
     <link href="../assets/css/sb-admin-2.min.css" rel="stylesheet">
     
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
 </head>
 
@@ -64,8 +65,8 @@ if(empty($_SESSION['active']))
 <!-- Nav Item - Tables -->
 <li class="nav-item">
     <a class="nav-link" href="categorias.php">
-    <i class="fas fa-grin"></i>
-        <span>Categorias</span></a>
+    <i class='fas fa-clipboard-list' style='font-size:24px'></i>
+        <span><b>Categorias</b></span></a>
 </li>
 
 <!-- Divider -->
@@ -73,8 +74,8 @@ if(empty($_SESSION['active']))
 
 <li class="nav-item">
     <a class="nav-link" href="proveedor.php">
-    <i class="fa-sharp fa-solid fa-person-to-door"></i>
-        <span>Proveedor</span></a>
+    <i class="fas fa-grin" style='font-size:24px'></i>
+        <span><b>Proveedor</b></span></a>
 </li>
 
 <!-- Divider -->
@@ -82,8 +83,8 @@ if(empty($_SESSION['active']))
 
 <li class="nav-item">
     <a class="nav-link" href="productos.php">
-    <i class="fa-sharp fa-solid fa-person-to-door"></i>
-        <span>Productos</span></a>
+    <i class='fas fa-shopping-bag' style='font-size:24px'></i>
+        <span><b>Productos</b></span></a>
 </li>
 
 <!-- Divider -->
@@ -91,8 +92,8 @@ if(empty($_SESSION['active']))
 
 <li class="nav-item">
     <a class="nav-link" href="consultas.php">
-        <i class="fas fa-list"></i>
-        <span>Pedidos</span></a>
+    <i class='fas fa-shipping-fast' style='font-size:24px'></i>
+        <span><b>Pedidos</b></span></a>
 </li>
 
 <!-- Divider -->
@@ -100,8 +101,8 @@ if(empty($_SESSION['active']))
 
 <li class="nav-item">
     <a class="nav-link" href="consultas2.php">
-        <i class="fas fa-list"></i>
-        <span>Ventas</span></a>
+    <i class='fas fa-hand-holding-usd' style='font-size:24px'></i>
+        <span><b>Ventas</b></span></a>
 </li>
 
 <!-- Divider -->
@@ -109,8 +110,8 @@ if(empty($_SESSION['active']))
 
 <li class="nav-item">
     <a class="nav-link" href="consultas3.php">
-        <i class="fas fa-user-times"></i>
-        <span>Cancelados</span></a>
+        <i class="fas fa-user-times" style='font-size:24px'></i>
+        <span><b>Cancelados</b></span></a>
 </li>
 
 <!-- Divider -->
@@ -118,8 +119,8 @@ if(empty($_SESSION['active']))
 
 <li class="nav-item">
     <a class="nav-link" href="../salir.php">
-        <i class="fas fa-list"></i>
-        <span>Salir</span></a>
+    <i class='fas fa-sign-in-alt' style='font-size:24px'></i>
+        <span> <b>Salir</b></span></a>
 </li>
 
 <!-- Divider -->

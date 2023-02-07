@@ -2,7 +2,7 @@
 //DB details
 $dbHost = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'Kevin$9570';
+$dbPassword = '';
 $dbName = 'card';
 
 //Create connection and select DB

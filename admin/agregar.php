@@ -72,6 +72,7 @@ if(empty($_GET['id'])){
     
     ?>
 <?php include("includes/header.php"); ?>
+<script src="../libreria/validaciones.php"></script>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Actualizar producto</h1>
 </div>
@@ -123,14 +124,14 @@ if(empty($_GET['id'])){
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="aumentar">Cantidad para aumentar</label>
-                                <input  id="aumentar" class="form-control" type="text"
+                                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();"  id="aumentar" class="form-control" type="text"
                                 name="aumentar" placeholder="Cantidad a aumentar" required >
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="n_precio">Precio de compra</label>
-                                <input  id="n_precio" class="form-control" type="text"
+                                <input onkeypress="return SoloNumeros(event);" onKeyUP="this.value=this.value.toUpperCase();" id="n_precio" class="form-control" type="text"
                                 name="n_precio" placeholder="precio de compra" required >
                             </div>
                         </div>
