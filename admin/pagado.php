@@ -72,7 +72,7 @@ $query = mysqli_query($conexion, "UPDATE orden
             <div class='panel-body'>
     
             <h1>" .$data['usuarioo']. " este es el estado de tu Pedido</h1>
-            <p>Ha sido pagado exitósamente!, por favor espera en tu casa a que llegue tu pedido</p>
+            <p>El ID $iduser ha sido pagado exitósamente!, por favor espera en tu casa a que llegue tu pedido</p>
             <h3>Gracias por usar los servicios de FULL STORE por favor contactenos si hay algún inconveniente con su compra: 0412-7505134     <strong style='color: darkblue;'>fullstore@gmail.com</strong> </h3>
             </div>
     
@@ -87,7 +87,7 @@ $query = mysqli_query($conexion, "UPDATE orden
    
     
     $mail = new Mailsender;
-    $mail->setDestination($data['corr_ele'], $data['usuarioo'], 'Orden de la tienda FULL STORE', $content, true);
+    $mail->setDestination($data['corr_ele'], $data['usuarioo'], 'PAGADO', $content, true);
     $mail->send();
 
 

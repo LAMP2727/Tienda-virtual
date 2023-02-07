@@ -1,9 +1,12 @@
 <?php
 //DB details
-$dbHost = 'localhost';
-$dbUsername = 'root';
-$dbPassword = '';
-$dbName = 'card';
+
+require_once 'config/config.php';
+
+$dbHost = HOST;
+$dbUsername = USERBD;
+$dbPassword = PASS;
+$dbName = BBDD;
 
 //Create connection and select DB
 $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);

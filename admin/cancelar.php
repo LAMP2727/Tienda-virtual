@@ -83,8 +83,8 @@ $content = "<!DOCTYPE html>
         <div class='panel-body'>
 
         <h1>" .$data['usuarioo']. " este es el estado de tu Pedido</h1>
-        <p>Su orden ha sido rechazada por no contactarse con el administrador dentro de las 24 horas</p>
-        <h3>Gracias por usar los servicios de FULL STORE, cualquier inconveniente contáctenos: 0412-7505134     <strong style='color: darkblue;'>fullstore@gmail.com</strong> </h3>
+        <p>El ID $iduser de orden ha sido rechazada por no contactarse con el administrador dentro de las 24 horas</p>
+        <h3>Gracias por usar los servicios de FULL STORE, cualquier inconveniente contáctenos: 0412-7505134  <strong style='color: darkblue;'>fullstore@gmail.com</strong> </h3>
         </div>
 
     
@@ -98,7 +98,7 @@ $content = "<!DOCTYPE html>
 
 
 $mail = new Mailsender;
-$mail->setDestination($data['corr_ele'], $data['usuarioo'], 'Orden de la tienda FULL STORE', $content, true);
+$mail->setDestination($data['corr_ele'], $data['usuarioo'], 'CANCELADO', $content, true);
 $mail->send();
 
 
