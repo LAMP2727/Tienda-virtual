@@ -1,9 +1,9 @@
 <?php
-
-    $host = "localhost";
-    $user = "root";
-    $clave = "Kevin$9570";
-    $bd = "card";
+	require_once 'config.php';
+    $host = HOST;
+    $user = USERBD;
+    $clave = USERBD;
+    $bd = BBDD;
     $conexion = mysqli_connect($host,$user,$clave,$bd);
     if (mysqli_connect_errno()){
         echo "No se pudo conectar a la base de datos";

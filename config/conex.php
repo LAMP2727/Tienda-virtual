@@ -1,7 +1,7 @@
 
 <?php
-
-	$conexion = new mysqli("localhost","root","Kevin$9570","card"); 
+	require_once 'config.php';
+	$conexion = new mysqli(HOST,USERBD,PASS,BBDD); 
 	
 
 
