@@ -57,7 +57,7 @@ include("config/conex.php")
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <button type="button" class="btn btn-outline-secondary">
-                            <a href="#" class="nav-link text-info" category="all">Todo</a>
+                            <a href="#" class="nav-link text-info" category="all">TODO</a>
                         </button>
                         
                         <?php
