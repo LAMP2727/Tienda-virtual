@@ -36,6 +36,8 @@ include("config/conex.php")
                     if(empty($_GET['id'])){
                         header('location: consultas.php');
                         }
+
+                        
                         $iduser = $_GET['id'];
                                         $sql = mysqli_query($conexion, "SELECT * FROM `orden`
                                         WHERE
@@ -107,17 +109,19 @@ if(empty($_GET['id'])){
                             <td><?php echo $sub_total; ?></td>
                            
                         </tr>
-                    <?php $total_price = $data['total_price']; } ?>
+                    <?php $total_price = $data['total_price']; } 
+                    $idusu = $_GET['usu'];
+                    ?>
                     </tbody>
             </table>
             <h1 style="margin-left: 75%;">TOTAL:  <?php echo $total_price ?></h1>
                   
          
-                                <form method="post" action="cancelar.php?id=<?php echo $id_pro; ?>" >
+                                <form method="post" action="cancelar.php?id=<?php echo $id_pro; ?>&usu=<?=$idusu?>" >
                                     <button class="btn btn-danger" type="submit" style="margin-left: 40%;">Cancelar pedido</button>
                                 </form>
                                 
-                                <form method="post" action="pagado.php?id=<?php echo $id_pro; ?>" >
+                                <form method="post" action="pagado.php?id=<?php echo $id_pro; ?>&usu=<?=$idusu?>" >
                                     <button class="btn btn-info" type="submit" style="margin-left: 40.5%;">Pedido pagado</button>
                                 </form>
                               
